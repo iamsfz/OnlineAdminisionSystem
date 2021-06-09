@@ -29,7 +29,7 @@ public class College {
 	private University university;
 	
 @OneToMany(cascade = {CascadeType.ALL})
-@JoinColumn(name="clgId")
+@JoinColumn(name="collegeId")
 	private List<Program> programList;
 	
 	

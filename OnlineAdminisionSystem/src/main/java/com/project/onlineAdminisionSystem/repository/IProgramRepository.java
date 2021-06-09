@@ -1,10 +1,11 @@
 package com.project.onlineAdminisionSystem.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.project.onlineAdminisionSystem.entity.Program;
@@ -21,6 +22,11 @@ public interface IProgramRepository  extends JpaRepository<Program , Integer> {
 	
 
 	List<Program> findBycollege(int id);
+	
+	
+	
+@Query(value="SELECT * FROM program WHERE college_id= :collegeId ;",nativeQuery=true)
+	List<Program> findByCollegeId(@Param("collegeId") int collegeId);
 
 	
 

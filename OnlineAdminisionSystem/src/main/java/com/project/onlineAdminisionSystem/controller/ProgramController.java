@@ -51,6 +51,6 @@ public Optional<Program> getProgramByName(@PathVariable("ProgramName") String na
 @GetMapping("/getProgrameByCollegeId/{id}")
 public List<Program> getProgramByName(@PathVariable("id") int id) {
 
-	return service.getProgramByCollegeId(id);
+	return service.getProgramsByCollegeId(id);
 }
 }

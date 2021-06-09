@@ -76,10 +76,13 @@ private IProgramRepository repo;
 	}
 
 
+
+
+
 	@Override
-	public List<Program> getProgramByCollegeId(int id) {
-		
-		return repo.findBycollege(id);
+	public List<Program> getProgramsByCollegeId(int collegeId) {
+
+		return repo.findByCollegeId(collegeId);
 	}
 
 }

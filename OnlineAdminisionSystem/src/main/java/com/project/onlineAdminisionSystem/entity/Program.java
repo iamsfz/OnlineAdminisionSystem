@@ -28,12 +28,15 @@ public class Program
  
 
 	@ManyToOne(cascade = {CascadeType.ALL})
-
+	@JoinColumn(name="collegeId")
 	private College college;
-	
+
 	
 	public Integer getProgramId() {
+	
 		return programId;
+		
+		
 	}
 
 	public void setProgramId(Integer programId) {

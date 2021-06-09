@@ -19,6 +19,7 @@ public interface IProgramService {
 	public Program  updateProgramStatus(Program program);
 
 	List<Program> viewAllProgramDetails();
-	List<Program> getProgramByCollegeId(int id);
+	
 	List<Program> getProgramByEligibility(String programEligibility);
+	public List<Program> getProgramsByCollegeId(int collegeId);
 }
