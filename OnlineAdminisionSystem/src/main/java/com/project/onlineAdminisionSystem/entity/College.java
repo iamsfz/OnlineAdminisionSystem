@@ -18,17 +18,21 @@ public class College {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int collegeRegId;
 	private String collegeName;
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Address collegeAddress;
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name ="clg_prog" ,referencedColumnName="collegeRegId")
-	private List<Program> programList;
+	
 	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Course> courseList;
 	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Branch> branchList;
 	@OneToOne
 	private University university;
+	
+@OneToMany(cascade = {CascadeType.ALL})
+@JoinColumn(name="clgId")
+	private List<Program> programList;
+	
+	
 	public int getCollegeRegId() {
 		return collegeRegId;
 	}
@@ -47,12 +51,7 @@ public class College {
 	public void setCollegeAddress(Address collegeAddress) {
 		this.collegeAddress = collegeAddress;
 	}
-	public List<Program> getProgramList() {
-		return programList;
-	}
-	public void setProgramList(List<Program> programList) {
-		this.programList = programList;
-	}
+
 	public List<Course> getCourseList() {
 		return courseList;
 	}
@@ -71,6 +70,21 @@ public class College {
 	public void setUniversityName(University university) {
 		this.university = university;
 	}
+	
+	
+	
+	public List<Program> getProgramList() {
+		return programList;
+	}
+	public void setProgramList(List<Program> programList) {
+		this.programList = programList;
+	}
+	public void setUniversity(University university) {
+		this.university = university;
+	}
+	
+	
+	
 	public College(int collegeRegId, String collegeName, Address collegeAddress, List<Program> programList,
 			List<Course> courseList, List<Branch> branchList, University university) {
 		super();
@@ -100,6 +114,7 @@ public class College {
 		this.collegeRegId = collegeRegId;
 		this.collegeName = collegeName;
 	}
+	
 	public College() {
 		super();
 	}

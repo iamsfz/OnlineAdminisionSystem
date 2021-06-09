@@ -41,8 +41,8 @@ private ICollegeRepository repo;
 		/*clg.setBranchList(college.getBranchList());
 		clg.setCollegeAddress(college.getCollegeAddress());*/
 		clg.setCollegeName(college.getCollegeName());
-	/*	clg.setCourseList(college.getCourseList());
-		clg.setProgramList(college.getProgramList());*/
+		//clg.setCourseList(college.getCourseList());
+		clg.setProgramList(college.getProgramList());
 		
 		
 		return repo.save(clg);
@@ -52,6 +52,12 @@ private ICollegeRepository repo;
 	public Optional<College> getCollegeDetailsById(int collegeId) {
 		// TODO Auto-generated method stub
 		return repo.findById(collegeId);
+	}
+
+	@Override
+	public Optional<College> getCollegeDetailsByName(String collegeName) {
+		// TODO Auto-generated method stub
+		return repo.findBycollegeName(collegeName);
 	}
 	
 	

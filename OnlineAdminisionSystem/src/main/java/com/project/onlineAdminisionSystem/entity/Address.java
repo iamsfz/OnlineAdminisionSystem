@@ -1,12 +1,15 @@
 package com.project.onlineAdminisionSystem.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Address 
 {
-	@Id	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int addressId;
 	private String city;
 	private String district;
@@ -76,6 +79,9 @@ public class Address
 		this.state = state;
 		this.country = country;
 		this.zipcode = zipcode;
+	}
+	public Address() {
+		super();
 	}
 	
 	

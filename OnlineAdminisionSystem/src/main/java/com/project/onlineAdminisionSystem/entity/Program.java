@@ -1,12 +1,19 @@
 	package com.project.onlineAdminisionSystem.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Program
 {
 	@Id
+
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer programId;	
 	
 	private String programName;
@@ -18,9 +25,11 @@ public class Program
 	private String programDuration;
 	
 	private String degreeOffered;
+ 
 
+	@ManyToOne(cascade = {CascadeType.ALL})
 
-	
+	private College college;
 	
 	
 	public Integer getProgramId() {
@@ -70,7 +79,10 @@ public class Program
 	public void setDegreeOffered(String degreeOffered) {
 		this.degreeOffered = degreeOffered;
 	}
+	
+	
 
+	
 	public Program(Integer programId, String programName, String programDescription, String programEligibility,
 			String programDuration, String degreeOffered) {
 		super();
@@ -81,5 +93,11 @@ public class Program
 		this.programDuration = programDuration;
 		this.degreeOffered = degreeOffered;
 	}
+
+	public Program() {
+		super();
+	}
+	
+	
 	
 }
