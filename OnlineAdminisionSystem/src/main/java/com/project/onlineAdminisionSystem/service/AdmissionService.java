@@ -6,7 +6,7 @@ import com.project.onlineAdminisionSystem.entity.Admission;
 public interface AdmissionService {
 	
 	public Admission addAdmission(Admission admission);
-	public void deleteAdmissionById(int applicationId);
+	public void deleteAdmissionById(int admissionId);
 	public Admission updateAdmission(Admission admission);
 	public Optional<Admission> getAdmissionbyId(int admissionId);
 	public List<Admission>viewAllAdmissions();
