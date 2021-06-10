@@ -85,4 +85,11 @@ private IProgramRepository repo;
 		return repo.findByCollegeId(collegeId);
 	}
 
+
+	@Override
+	public List<Integer> getCollegeByProgramName(String programName) {
+	
+		return repo.findCollegeByProgramName(programName);
+	}
+
 }

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlineAdminisionSystem.entity.College;
 import com.project.onlineAdminisionSystem.entity.Program;
+import com.project.onlineAdminisionSystem.service.ICollegeService;
 import com.project.onlineAdminisionSystem.service.IProgramService;
 
 
@@ -24,6 +26,8 @@ import com.project.onlineAdminisionSystem.service.IProgramService;
 public class ProgramController {
 	@Autowired
 	private IProgramService service;
+	@Autowired
+	private ICollegeService clgService;
 
 
 	@PostMapping("/addProgram")
@@ -52,5 +56,18 @@ public Optional<Program> getProgramByName(@PathVariable("ProgramName") String na
 public List<Program> getProgramByName(@PathVariable("id") int id) {
 
 	return service.getProgramsByCollegeId(id);
+}
+
+@GetMapping("/getCollegeIdByProgramName/{programName}")
+public List<Integer> getCollegeIdByProgramName(@PathVariable("programName") String pname) {
+
+	return service.getCollegeByProgramName(pname);
+}
+@GetMapping("/getCollegeByProgramName/{programName}")
+public List<College> getCollegeByProgramName(@PathVariable("programName") String pname) {
+
+	List<Integer> id= service.getCollegeByProgramName(pname);
+List<College> college = clgService.getCollegeByProgramName(id);
+return college;
 }
 }

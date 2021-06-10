@@ -20,5 +20,6 @@ public interface ICollegeService
 	public College  updateCollegeDetails(College college);
 	public  Optional<College> getCollegeDetailsById(int collegeId);
 	public  Optional<College> getCollegeDetailsByName(String collegeName);
+	public List<College> getCollegeByProgramName(List<Integer> id);
 	
 }

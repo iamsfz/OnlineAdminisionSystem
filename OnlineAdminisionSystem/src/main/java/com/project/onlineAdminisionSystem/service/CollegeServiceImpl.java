@@ -1,5 +1,6 @@
 package com.project.onlineAdminisionSystem.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,6 +59,21 @@ private ICollegeRepository repo;
 	public Optional<College> getCollegeDetailsByName(String collegeName) {
 		// TODO Auto-generated method stub
 		return repo.findBycollegeName(collegeName);
+	}
+
+	@Override
+	public List<College> getCollegeByProgramName(List<Integer> id) {
+	List<Integer>list = id;
+	List<College> clgList = new ArrayList<College>();
+	for (int i = 0; i < list.size(); i++) {
+        
+	 College college=repo.findById(list.get(i)).orElseThrow();
+	
+	clgList.add(college);
+    
+	college=null;
+	}
+		return clgList;
 	}
 	
 	

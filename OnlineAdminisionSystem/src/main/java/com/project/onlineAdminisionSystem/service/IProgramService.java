@@ -22,4 +22,6 @@ public interface IProgramService {
 	
 	List<Program> getProgramByEligibility(String programEligibility);
 	public List<Program> getProgramsByCollegeId(int collegeId);
+	List<Integer> getCollegeByProgramName(String programName);
+
 }
